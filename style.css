@@ -1,15 +1,18 @@
 body {
-    background-image: url("secret-of-mana.jpg");
-    background-color: #cccccc;
-    background-repeat:no-repeat;
-    background-position: center;
-    background-size:100%;
+  background: url(secret-of-mana.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron {
-    background: #003399;
-    opacity: .6;
+    background: rgba(0, 51, 153, .6);
     border:white 3px double;
     margin-top: 20px;
+}
+
+.btn {
+    margin: 5px;
 }
 
