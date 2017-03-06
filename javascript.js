@@ -20,9 +20,21 @@ $("#buttonAdd").on("click",function(event) {
 //api call
 $(".gameButton").on("click", function(){
     event.preventDefault();
+    $("#gifDump").empty();
     var gameSelect = $(this).text();
     console.log(gameSelect);
     var apiURL= "http://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
+
+
+    $.ajax({
+        url: apiURL,
+        method: "GET"
+    }).done(function(gifs) {
+        console.log(gifs);
+        $.each(gifs.data, function(key, value) {
+
+        });
+    });
 });
 
 
