@@ -17,7 +17,16 @@ $("#buttonAdd").on("click",function(event) {
     console.log(games);
 });
 
+//api call
+$(".gameButton").on("click", function(){
+    event.preventDefault();
+    var gameSelect = $(this).text();
+    console.log(gameSelect);
+    var apiURL= "http://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
+});
 
-//apiURL= "http://api.giphy.com/v1/gifs/search?q=" +  + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
+
+
+
 
 }); //end onready wrapper
