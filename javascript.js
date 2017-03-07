@@ -35,6 +35,7 @@ $(".gameButton").on("click", function(){
             console.log(value.images.original.url);
             console.log(value.images.original_still.url);
             console.log(value.rating)
+            $("#gifDump").append("<div class='gifDiv'><p class = 'rating'>" + value.rating + "</p></div>");
         });
     });
 });
