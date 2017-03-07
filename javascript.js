@@ -32,7 +32,9 @@ $(".gameButton").on("click", function(){
     }).done(function(gifs) {
         console.log(gifs);
         $.each(gifs.data, function(key, value) {
-
+            console.log(value.images.original.url);
+            console.log(value.images.original_still.url);
+            console.log(value.rating)
         });
     });
 });
