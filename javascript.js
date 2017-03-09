@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 //array of buttons
-var games=["Secret of Mana", "Final Fantasy", "The Legend of Zelda", "The Elder Scrolls"];
+var games=["Secret of Mana", "Final Fantasy", "The Legend of Zelda", "The Elder Scrolls", "Super Mario Bros"];
 
 //add existing buttons to buttonDump
 $.each(games,function(game){
@@ -17,7 +17,7 @@ $("#buttonAdd").on("click",function(event) {
     console.log(games);
 });
 
-//api call
+//on click create url and put it through an api call
 $(".gameButton").on("click", function(){
     event.preventDefault();
     $("#gifDump").empty();
@@ -25,20 +25,37 @@ $(".gameButton").on("click", function(){
     console.log(gameSelect);
     var apiURL= "http://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
 
-
+    //api call
     $.ajax({
         url: apiURL,
         method: "GET"
     }).done(function(gifs) {
         console.log(gifs);
+        //pull specific information from json file and append to gifDump
         $.each(gifs.data, function(key, value) {
             console.log(value.images.original.url);
             console.log(value.images.original_still.url);
             console.log(value.rating)
-            $("#gifDump").append("<div class='gifDiv'><p class = 'rating'>" + value.rating + "</p></div>");
+            var currentGif = '<img src="' + value.images.original_still.url + '" data-still="' + value.images.original_still.url + '" data-animate="' + value.images.original.url + '" data-state="still" class="gif">'
+            $("#gifDump").append("<div class='gifDiv panel panel-dafault'><p class = 'rating'>Rating: " + value.rating + "</p>" + currentGif + "</div>");
+        });
+        //add start/stop functionality to gifs
+        $(".gif").on("click", function() {
+            console.log("gif clicked")
+            var state = $(this).attr("data-state");
+            if (state == "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+                console.log(state);
+            } else {
+                $(this).attr("src", $(this).attr("data-still"))
+                $(this).attr("data-state", "still");                   
+                console.log(state);
+            };
         });
     });
 });
+
 
 
 
