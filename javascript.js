@@ -18,7 +18,7 @@ $("#buttonAdd").on("click",function(event) {
 });
 
 //on click create url and put it through an api call
-$(".gameButton").on("click", function(){
+$(document).on("click",".gameButton" , function(){
     event.preventDefault();
     $("#gifDump").empty();
     var gameSelect = $(this).text();
