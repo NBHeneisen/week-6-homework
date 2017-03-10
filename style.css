@@ -1,3 +1,8 @@
+@font-face {
+    font-family: ManaFont;
+    src: url(manaspc.ttf);
+}
+
 body {
   background: url(secret-of-mana.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -10,16 +15,26 @@ body {
     background: rgba(0, 51, 153, .6);
     border:white 3px double;
     margin-top: 20px;
+    font-family: ManaFont
 }
 
-.btn {
-    margin: 5px;
-}
 
 .gifDiv {
     background-color: white;
+    text-align: center;
 }
 
 .rating {
     font-size: 1.5em;
+}
+
+img {
+    width:100%
+}
+
+.gameButton {
+    background: none;
+    border: none;
+    margin: 5px;
+    color: white;
 }

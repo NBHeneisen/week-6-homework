@@ -1,18 +1,18 @@
 $(document).ready(function(){
 
 //array of buttons
-var games=["Secret of Mana", "Final Fantasy", "The Legend of Zelda", "The Elder Scrolls", "Super Mario Bros"];
+games=["Secret of Mana", "Final Fantasy", "The Legend of Zelda", "The Elder Scrolls", "Super Mario Bros", "Minecraft"];
 
 //add existing buttons to buttonDump
 $.each(games,function(game){
-    $("#buttonDump").append("<button class='gameButton btn btn-success'>" + games[game] + "</button>");
-})
+    $("#buttonDump").append("<button class='gameButton btn'>" + games[game] + "</button>");
+});
 
-//when add game button pressed, add button to buttonDump
+//when "add game" button pressed, add button to buttonDump
 $("#buttonAdd").on("click",function(event) {
     event.preventDefault();
     games.push($("#buttonText").val());
-    $("#buttonDump").append("<button class='gameButton btn btn-success'>" + games[games.length-1] + "</button>");
+    $("#buttonDump").append("<button class='gameButton btn'>" + games[games.length-1] + "</button>");
     $("#buttonText").val("");
     console.log(games);
 });
@@ -33,9 +33,6 @@ $(".gameButton").on("click", function(){
         console.log(gifs);
         //pull specific information from json file and append to gifDump
         $.each(gifs.data, function(key, value) {
-            console.log(value.images.original.url);
-            console.log(value.images.original_still.url);
-            console.log(value.rating)
             var currentGif = '<img src="' + value.images.original_still.url + '" data-still="' + value.images.original_still.url + '" data-animate="' + value.images.original.url + '" data-state="still" class="gif">'
             $("#gifDump").append("<div class='gifDiv panel panel-dafault'><p class = 'rating'>Rating: " + value.rating + "</p>" + currentGif + "</div>");
         });
