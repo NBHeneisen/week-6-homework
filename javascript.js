@@ -18,12 +18,12 @@ $("#buttonAdd").on("click",function(event) {
 });
 
 //on click create url and put it through an api call
-$(document).on("click",".gameButton" , function(){
+$("#buttonDump").on("click",".gameButton" , function(){
     event.preventDefault();
     $("#gifDump").empty();
     var gameSelect = $(this).text();
     console.log(gameSelect);
-    var apiURL= "http://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
+    var apiURL= "https://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
 
     //api call
     $.ajax({
