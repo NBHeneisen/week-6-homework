@@ -23,7 +23,7 @@ $("#buttonDump").on("click",".gameButton" , function(){
     $("#gifDump").empty();
     var gameSelect = $(this).text();
     console.log(gameSelect);
-    var apiURL= "https://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
+    var apiURL= "http://api.giphy.com/v1/gifs/search?q=" + gameSelect + "&api_key=dc6zaTOxFJmzC&rating=pg&limit=10";
 
     //api call
     $.ajax({
