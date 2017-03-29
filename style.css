@@ -38,3 +38,13 @@ img {
     margin: 5px;
     color: white;
 }
+
+.instructions {
+    font-family: ManaFont;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#buttonAdd {
+    margin-top: 1em;
+}
